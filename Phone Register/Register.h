@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface Register : UIViewController
+- (IBAction)btnRegister:(id)sender;
 
 
 @end

@@ -20,6 +20,17 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kPp-Ng-7cp">
+                                <rect key="frame" x="84" y="164" width="152" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.39048946066843127" green="0.50990022145126868" blue="0.56964172979797978" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Presionation">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnRegister:" destination="BYZ-38-t0r" eventType="touchDown" id="sxJ-Hw-wVn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.41816518245407741" blue="0.27256623158888438" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
