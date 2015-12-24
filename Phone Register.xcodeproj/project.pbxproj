@@ -368,6 +368,7 @@
 				84776CA91C094E4200100599 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

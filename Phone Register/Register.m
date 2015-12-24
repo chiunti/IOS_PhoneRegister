@@ -18,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    //[self initDigit];
+}
+
+-(void) initDigit{
     DGTAuthenticateButton *authButton;
     authButton = [DGTAuthenticateButton buttonWithAuthenticationCompletion:^(DGTSession *session, NSError *error) {
         if (session.userID) {
@@ -34,9 +38,8 @@
         }
     }];
     authButton.center = self.view.center;
-//    authButton.digitsAppearance = [self makeTheme];
+    //    authButton.digitsAppearance = [self makeTheme];
     [self.view addSubview:authButton];
-
 }
 
 - (DGTAppearance *)makeTheme {
@@ -56,20 +59,21 @@
 }
 
 - (IBAction)btnRegister:(id)sender {
-    [[Digits sharedInstance] authenticateWithCompletion:^(DGTSession *session, NSError *error) {
-        // Inspect session/error objects
-        if (session.userID) {
-            // TODO: associate the session userID with your user model
-            NSString *msg = [NSString stringWithFormat:@"Teléfono: %@", session.phoneNumber];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Estás Logueado!"
-                                                            message:msg
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-        } else if (error) {
-            NSLog(@"Error de Autenticación: %@", error.localizedDescription);
-        }
-    }];
+    if ([self.outBtnRegister.titleLabel.text  isEqual: @"Register"]) {
+        [[Digits sharedInstance] authenticateWithCompletion:^(DGTSession *session, NSError *error) {
+            // Inspect session/error objects
+            if (session.userID) {
+                // TODO: associate the session userID with your user model
+                self.PhoneNumber.text = session.phoneNumber;
+                [self.outBtnRegister setTitle:@"Unregister" forState:UIControlStateNormal];
+            } else if (error) {
+                NSLog(@"Error de Autenticación: %@", error.localizedDescription);
+            }
+        }];
+    } else {
+        self.PhoneNumber.text = @"";
+        [self.outBtnRegister setTitle:@"Register" forState:UIControlStateNormal];
+        [[Digits sharedInstance] logOut ] ;
+    }
 }
 @end

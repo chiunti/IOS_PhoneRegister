@@ -10,6 +10,8 @@
 
 @interface Register : UIViewController
 - (IBAction)btnRegister:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *PhoneNumber;
+@property (weak, nonatomic) IBOutlet UIButton *outBtnRegister;
 
 
 @end
